@@ -31,7 +31,7 @@ test("@api API Testing", async ({ request }) =>
         headers: 
         {
           Authorization: `Bearer ${token}`,
-          "x-api-key": "eAVYIHwq772MdEfU7VAtXaZr7mnY0e6H9a4IigSN",
+          "x-api-key" : process.env.X_API_KEY,
           "Content-Type": "application/json",
         }
       })

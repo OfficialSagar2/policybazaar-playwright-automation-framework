@@ -1,10 +1,11 @@
 const { buildPayload } = require("./payloadBuilder");
+require('dotenv').config();
 
 async function getApiPremium(request, user) {
 
   const tokenResp = await request.post("https://uatapigw.tataaig.com/access-gateway/oauth2/token", {
     form: {
-      grant_type: "client_credentials",
+      grant_type: process.env.GRANT_TYPE,
       scope: process.env.SCOPE,
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET
@@ -20,7 +21,7 @@ async function getApiPremium(request, user) {
     data: payload,
     headers: {
       Authorization: `Bearer ${token}`,
-      "x-api-key": "eAVYIHwq772MdEfU7VAtXaZr7mnY0e6H9a4IigSN",
+      "x-api-key": process.env.X_API_KEY,
       "Content-Type": "application/json",
     }
   });
