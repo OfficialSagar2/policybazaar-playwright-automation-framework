@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "name": "User1",
+      "fullName": "Sagar Pwr",
+      "gender": "Male",
+      "dob": "01-01-2004",
+      "passport": "K5656565",
+      "countryName":"Canada" ,
+      "email": "spawar.sagar2@gmail.com",
+      "MobNo": "7021001491",
+      "pan": "BMZPP1482R"
+    },
+    {
+      "name": "User2",
+      "fullName": "Prerana Patil",
+      "gender": "Female",
+      "dob": "01-01-2004",
+      "passport": "L1234567",
+      "countryName":"United States of America",
+      "email": "spawar.sagar2@gmail.com",
+      "MobNo": "9876543210",
+      "pan": "ABCDE1234F"
+    }
+  ]
+}
