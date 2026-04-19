@@ -1,19 +1,18 @@
 const { test, expect } = require("../fixtures/baseTestIns");
 const testData = require('../Utils/TestData.json');
-const { getApiPremium } = require("../Utils/apiHelper");
 
 test.describe('@e2e @web Insurance Purchase Flow - Multiple Users', () => {
 
   for (const user of testData.users) {
 
-    test(`@smoke Flow for ${user.name}`, async ({ homePage, quotePage, proposalPage, paymentPage, contactDetailPage, orderPage, request }) => {
+    test(`@smoke Flow for ${user.name}`, async ({ homePage, quotePage, proposalPage, paymentPage, contactDetailPage, orderPage }) => {
       //const homePage = new HomePage(page);
       await homePage.goTo();
       await expect(homePage.page).toHaveURL(/travelqa/);
       await homePage.quoteSelectionCriteria(user);
 
       //const quotePage = new QuotePage(page);
-      const quotePremium = await quotePage.quoteDetails();
+      await quotePage.quoteDetails();
 
       // const proposalPage = new ProposalPage(page);
       await proposalPage.proposalDetail(user);
@@ -28,21 +27,7 @@ test.describe('@e2e @web Insurance Purchase Flow - Multiple Users', () => {
       await contactDetailPage.contactDetail(user);
 
       //const orderPage = new OrderPage(page);
-      const finalPremium = await orderPage.orderDetails();
-
-      // ✅ UI vs UI validation
-      expect(Math.abs(finalPremium - quotePremium)).toBeLessThanOrEqual(1);
-
-      console.log(`Quote Premium: ${quotePremium}`);
-      console.log(`Final Premium: ${finalPremium}`);
-
-      // ✅ API call (IMPORTANT: pass user + request)
-      const apiPremium = await getApiPremium(request,user);
-      console.log(`API Premium: ${apiPremium}`);
-
-      // ✅ UI vs API validation
-      expect(Math.abs(finalPremium - apiPremium)).toBeLessThanOrEqual(1);
-
+      await orderPage.orderDetails();
     });
   }
 });

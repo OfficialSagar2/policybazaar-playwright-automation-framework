@@ -2,7 +2,7 @@ const { test, expect } = require("../fixtures/baseTestIns");
 const testData = require('../Utils/TestData.json');
 const { getApiPremium } = require("../Utils/apiHelper");
 
-    test("@smoke ", async ({ homePage, quotePage, proposalPage, paymentPage, contactDetailPage, orderPage, request }) => 
+    test("@smoke Order Page Testing", async ({ homePage, quotePage, proposalPage, paymentPage, contactDetailPage, orderPage, request }) => 
     {
       const user = testData.users[0];
       await homePage.goTo();

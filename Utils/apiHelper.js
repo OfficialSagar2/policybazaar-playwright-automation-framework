@@ -14,7 +14,7 @@ async function getApiPremium(request, user) {
 
   const tokenJson = await tokenResp.json();
   const token = tokenJson.access_token;
-
+  
   const payload = buildPayload(user);
 
   const quoteResp = await request.post("https://uatapigw.tataaig.com/travelapi/v1/quote-compose", {
