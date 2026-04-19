@@ -36,5 +36,10 @@ Execution Limitation :
 Tests are executed only during UAT availability window (Mon–Fri, 9 AM – 7 PM),
 as the test environment is not accessible after working hours or on weekends.
 
+## ⚠️ Note on Execution
+This project integrated with secure UAT APIs which require internal credentials (Accessible only to authorized users) 
+Due to security reasons, API keys and secrets are not included in the repository.
+The project can not be executed externally without valid access
+
 Author :
 Sagar Pawar
